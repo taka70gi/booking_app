@@ -1,0 +1,64 @@
+
+<%= stylesheet_link_tag 'users' %>
+<% @page_title = 'プロフィール' %>
+
+<div class="user">
+    <%= render "shared/flash" %>
+    <%= render "shared/error", obj: @user%>
+    <div class="row">
+        <div class="col-lg-2 user-nav user-nav-pc d-lg-block d-none">
+            <ul>
+                <li class=""><%= link_to "アカウント", users_path, class: "string_layout_black" %></li>
+                <li class="active"><%= link_to "プロフィール", edit_user_path(current_user), class: "string_layout" %></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 user-nav user-nav-mobile d-lg-none">
+            <ul>
+                <li class=""><%= link_to "アカウント", users_path, class: "string_layout_black" %></li>
+                <li class="active"><%= link_to "プロフィール", edit_user_path(current_user), class: "string_layout" %></li>
+            </ul>
+        </div>
+        <div class="col-md-10 layout_back">
+            <div class="layout_wide">
+                <div class="layout_position">
+                    <div class="layout_item_back">
+                        <%= form_with model: @user do |f| %>
+                            <table>
+                                <tr>
+                                    <th><h4>プロフィール</h4></th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        <% if @user.image.attached? %>
+                                            <%= image_tag @user.image, class: "me_icon" %>
+                                        <% else %>
+                                            <img class="me_icon" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg" alt="アイコン"></img>
+                                        <% end %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="edit_label">アイコン画像</th>
+                                    <td><%= f.file_field :image %></td>
+                                </tr>
+                                <tr>
+                                    <th class="edit_label"><%= f.label :name ,"名前" %></th>
+                                    <td><%= f.text_field :name, :placeholder => "名前を入力", class: "field_size" %></td>
+                                </tr>
+                                <tr>
+                                    <th class="edit_label"><%= f.label :meintro ,"自己紹介" %></th>
+                                    <td><%= f.text_area :meintro, :placeholder => "自己紹介を入力", class: "field_size" %></td>
+                                </tr>
+                                <tr>
+                                    <th><%= f.submit "更新", class: "blue_button btn setup_btn_size" %></th>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

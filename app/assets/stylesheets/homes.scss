@@ -1,0 +1,107 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.home_top_back{
+    background-image: url(https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg);
+    width: 100%;
+    height: 590px;
+    background-size: cover;
+}
+.home_top{
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (min-width: 576px){
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px){
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px){
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px){
+    .container {
+        max-width: 1140px;
+    }
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.search-form_layout {
+    height: 650px;
+    display: flex;
+    align-items: center;
+}
+.search-form{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 30px;
+}
+.search_from_width{
+    width: 100%;
+}
+.search_from_text{
+    font-size: 28px;
+    line-height: 33px;
+}
+.col-lg-6 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px){
+    .col-lg-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+.home_recommend_layout .row{
+    flex-wrap: wrap;
+}
+.recommend_img{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+}
+.img_50{
+    flex: 0 0 50%;
+    max-width: 50%;
+} 
+
+@media (min-width: 992px){
+    .img_25 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+.area_img{
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+.recommend_img span {
+    position: absolute;
+    top: 325px;
+    left: 70px;
+    color: #fff;
+    background-color: #eaedefa6;
+    padding: 0 30px;
+    font-size: 18px;
+}

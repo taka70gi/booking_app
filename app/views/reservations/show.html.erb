@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag 'reservations' %>
+<% @page_title = '予約詳細' %>
+
+<div class="layout_back">
+    <div class="layout_wide">
+        <%= render "shared/flash" %>
+        <div class="layout_position">
+            <div class="layout_item_back">
+                <table>
+                    <tr>
+                        <th>予約した部屋</th>
+                        <td><%= @room.room_name %></td>
+                    </tr>
+                    <tr>
+                        <th>開始日</th>
+                        <td><%= @reservation.start_on.strftime("%Y年%m月%d日") %></td>
+                    </tr>
+                    <tr>
+                        <th>終了日</th>
+                        <td><%= @reservation.end_on.strftime("%Y年%m月%d日") %></td>
+                    </tr>
+                    <tr>
+                        <th>価格</th>
+                        <td><%= @reservation.all_price %>円</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

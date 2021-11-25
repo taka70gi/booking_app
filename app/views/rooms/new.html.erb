@@ -1,0 +1,60 @@
+<%= stylesheet_link_tag 'rooms' %>
+<% @page_title = 'ルーム情報登録' %>
+
+<div class="user">
+    <div class="row">
+        <div class="col-lg-2 user-nav user-nav-pc d-lg-block d-none">
+            <ul>
+                <li class="active"><%= link_to "基本情報", new_room_path, class: "string_layout" %></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 user-nav user-nav-mobile d-lg-none">
+            <ul>
+                <li class="active"><%= link_to "基本情報", new_room_path, class: "string_layout" %></li>
+            </ul>
+        </div>
+        <div class="col-md-10 layout_back">
+            <div class="layout_wide">
+                <%= render "shared/flash" %>
+                <%= render "shared/error", obj: @room %>
+                <div class="layout_position">
+                    <div class="layout_item_back">
+                        <%= form_with model: @room do |f| %>
+                            <%= f.hidden_field :user_id, value: @user.id %>
+                            <table>
+                                <tr>
+                                    <th><h4>ルーム情報登録</h4></th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th class="edit_label"><%= f.label :room_name ,"ルーム名" %></th>
+                                    <td><%= f.text_field :room_name, :placeholder => "ルーム名を入力", class: "field_size" %></td>
+                                </tr>
+                                <tr>
+                                    <th class="edit_label"><%= f.label :introduction ,"ルーム紹介" %></th>
+                                    <td><%= f.text_area :introduction, :placeholder => "ルーム説明を入力", class: "field_size" %></td>
+                                </tr>
+                                <tr>
+                                    <th class="edit_label"><%= f.label :price ,"料金" %></th>
+                                    <td><%= f.text_field :price, :placeholder => "1日あたりの料金を入力", class: "field_size" %></td>
+                                </tr>
+                                <tr>
+                                    <th class="edit_label"><%= f.label :address ,"住所" %></th>
+                                    <td><%= f.text_field :address, :placeholder => "住所を入力", class: "field_size" %></td>
+                                </tr>
+                                <tr>
+                                    <th class="edit_label"><%= f.label :image ,"ルーム画像" %></th>
+                                    <td><%= f.file_field :image %></td>
+                                </tr>
+                                <tr>
+                                    <th><%= f.submit "更新", class: "blue_button btn setup_btn_size" %></th>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

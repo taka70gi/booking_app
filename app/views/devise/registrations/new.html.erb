@@ -1,0 +1,25 @@
+<div class="layout_back">
+  <div class="layout_wide">
+    <div class="layout_position">
+      <div class="layout_item_back">
+        <p>新しいアカウントを作成</p>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="field">
+            <%= f.text_field :name, :placeholder => "ユーザー名", class: "field_size" %>
+          </div>
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "メールアドレス", class: "field_size" %>
+          </div>
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "new-password", :placeholder => "パスワード", class: "field_size" %>
+          </div>
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "パスワード確認", class: "field_size" %>
+          </div>
+          <%= f.submit "新しいアカウントを作成", class: "blue_button btn user_btn_size" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<% @page_title = 'アカウント編集' %>
+
+<div class="device">
+  <div class="device_frame">
+    <h2>アカウント編集</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div>
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "メールアドレス", class: "field_size" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div>
+        <%= f.label :変更後パスワード %> <i>(変更する場合のみ入力)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "field_size" %>
+      </div>
+
+      <div>
+        <%= f.label :パスワード確認用 %> <i>(変更する場合のみ入力)</i><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field_size" %>
+      </div>
+
+      <div>
+        <%= f.label :現在のパスワード %><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", :placeholder => "現在のパスワードを入力", class: "field_size" %>
+      </div>
+
+      <div class="btn_layout">
+        <%= f.submit "更新", class: "blue_button btn update_btn_size" %>
+      </div>
+      <div class="btn_layout">
+        <%= link_to "戻る", :users, class: "white_button btn back_btn_size" %>
+      </div>
+    <% end %>
+  </div>
+</div>

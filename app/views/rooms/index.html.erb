@@ -1,0 +1,39 @@
+<%= stylesheet_link_tag 'rooms' %>
+<% @page_title = '登録済みルーム一覧' %>
+
+<div class="layout_back">
+    <div class="layout_wide">
+        <div class="layout_position">
+            <div class="layout_item_back">
+                <%= render "shared/flash" %>
+                <h3>登録済みルーム一覧</h3>
+                <table class="room_table">
+                    <thead>
+                    <tr>
+                        <th class="room_index_img">ルーム画像</th>
+                        <th class="room_index_name">ルーム名</th>
+                        <th class="room_index_introduction">ルーム紹介</th>
+                        <th class="room_index_price">料金</th>
+                        <th class="room_index_date">作成日</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <% @rooms.each do |room| %>
+                            <tr>
+                                <td>
+                                    <% if room.image.attached? %>
+                                        <%= link_to (image_tag room.image, class: "index-image"), room_path(room) %>
+                                    <% end %>
+                                </td>
+                                <td><%= link_to room.room_name, room_path(room), class: "index_link" %></td>
+                                <td><%= room.introduction %></td>
+                                <td>¥<%= room.price %></td>
+                                <td><%= room.created_at.to_s(:datetime_jp) %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

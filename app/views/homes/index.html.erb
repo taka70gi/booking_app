@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag 'homes' %>
+
+<div class="layout_back">
+    <div class="home_top_back">
+        <div class="container">
+            <div class="row col-lg-6">
+                <div class="search-form_layout">
+                    <div class="search-form">
+                        <p class="search_from_text">Potepan Shareでまだ体験したことのない旅をしよう</p>
+                        <p>エリア</p>
+                        <div class="search_from_width">
+                            <%= form_with url: "/rooms/search", method: :get, local: true do |f| %>
+                                <%= f.text_field :keyword, value: @keyword, :placeholder => "東京", class: "field_size search_from_width" %><br>
+                                <%= f.submit "検索", class: "btn blue_button user_btn_size search_from_width" %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="home_recommend_layout">
+            <h2>おすすめエリア</h2>
+            <div class="row">
+                <div class="recommend_img img_50 img_25">
+                    <span>東京</span>
+                    <%= form_with url: "/rooms/search", method: :get, local: true do |f| %>
+                        <%= f.hidden_field :keyword, value: "東京" %>
+                        <%= image_submit_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg", class: 'area_img') %>
+                    <% end %>
+                </div>
+                <div class="recommend_img img_50 img_25">
+                    <span>大阪</span>
+                    <%= form_with url: "/rooms/search", method: :get, local: true do |f| %>
+                        <%= f.hidden_field :keyword, value: "大阪" %>
+                        <%= image_submit_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg", class: 'area_img') %>
+                    <% end %>
+                </div>
+                <div class="recommend_img img_50 img_25">
+                    <span>京都</span>
+                    <%= form_with url: "/rooms/search", method: :get, local: true do |f| %>
+                        <%= f.hidden_field :keyword, value: "京都" %>
+                        <%= image_submit_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg", class: 'area_img') %>
+                    <% end %>
+                </div>
+                <div class="recommend_img img_50 img_25">
+                    <span>札幌</span>
+                    <%= form_with url: "/rooms/search", method: :get, local: true do |f| %>
+                        <%= f.hidden_field :keyword, value: "京都" %>
+                        <%= image_submit_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg", class: 'area_img') %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

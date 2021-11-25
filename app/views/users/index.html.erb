@@ -1,0 +1,57 @@
+
+<%= stylesheet_link_tag 'users' %>
+<% @page_title = 'アカウント' %>
+
+<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+    <!-- ユーザーがログインしていた時の処理 -->
+    <!-- <h2> 現在 <%= current_user.name %> さんがログインしています </h2> <!-- ここを追加します -->
+    <!-- <h4> メールアドレス： <%= current_user.email %> </h4>
+    <h4> パスワード： <%= current_user.encrypted_password %> </h4>-->
+    <div class="user">
+        <div class="row">
+            <div class="col-lg-2 user-nav user-nav-pc d-lg-block d-none">
+                <ul>
+                    <li class="active"><%= link_to "アカウント", users_path, class: "string_layout" %></li>
+                    <li class=""><%= link_to "プロフィール", edit_user_path(current_user), class: "string_layout_black" %></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 user-nav user-nav-mobile d-lg-none">
+                <ul>
+                    <li class="active"><%= link_to "アカウント", users_path, class: "string_layout" %></li>
+                    <li class=""><%= link_to "プロフィール", edit_user_path(current_user), class: "string_layout_black" %></li>
+                </ul>
+            </div>
+            <div class="col-md-10 layout_back">
+                <div class="layout_wide">
+                    <div class="layout_position">
+                        <div class="layout_item_back">
+                            <table class="user_table">
+                                <tr>
+                                    <th><h4>アカウント</h4></th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>メールアドレス</th>
+                                    <td><%= current_user.email %></td>
+                                </tr>
+                                <tr>
+                                    <th>パスワード</th>
+                                    <td>******</td>
+                                </tr>
+                                <tr>
+                                    <th><%= link_to "編集", edit_user_registration_path, class: "blue_button btn setup_btn_size" %></th>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% else %>
+    <!-- ユーザーがログインしていなかった時の処理 -->
+    <h2> 現在ログインしていません </h2>
+    <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
+    <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
+<% end %>

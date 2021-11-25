@@ -1,16 +1,70 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BookingApp</title>
+    <title><%= page_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="header_layout">
+        <div class="header_logo">
+          <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png") , homes_path %>
+          <div class="header_search">
+            <div class="header_search_field">
+              <%= form_with url: "/rooms/search", method: :get, local: true do |f| %>
+                  <%= f.text_field :keyword, value: @keyword, :placeholder => "エリア", class: "field_size" %><br>
+                  <% f.submit %>
+              <% end %>
+            </div> 
+            <div class="header_search_field">
+              <%= form_with url: "/rooms/search", method: :get, local: true do |f| %>
+                  <%= f.text_field :keyword, value: @keyword, :placeholder => "キーワード", class: "field_size" %><br>
+                  <% f.submit %>
+              <% end %>
+            </div> 
+          </div>  
+        </div>
+        <% if user_signed_in? %>
+          <div class="header_right">
+            <div class="header_name">
+              <%= load_user.name %>
+            </div>
+            <div class="header_img js-accordion-title">
+              <% if load_user.image.attached? %>
+                  <%= image_tag load_user.image, class: "me_icon" %>
+              <% else %>
+                  <img class="me_icon" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg" alt="アイコン"></img>
+              <% end %>
+              <ul class="header-nav-menu">
+                <li><%= link_to "ルーム登録", new_room_path, class: "string_layout_black" %></li>
+                <li><%= link_to "予約済みルーム一覧", reservations_path, class: "string_layout_black" %></li>
+                <li><%= link_to "登録済みルーム一覧", rooms_path, class: "string_layout_black" %></li>
+                <li><%= link_to "設定", users_path, class: "string_layout_black" %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "string_layout_black" %></li>
+              </ul>
+            </div>
+          </div>
+        <% else %>
+          <lu class="header_list">
+            <li>
+              <%= link_to "ログイン", new_user_session_path, class: "blue_button btn setup_btn_size" %>
+            </li>
+            <li>
+              <%= link_to "登録する", new_user_registration_path, class: "black_button btn setup_btn_size" %> 
+            </li>
+          </lu>
+        <% end %>
+          
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+      <p>POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

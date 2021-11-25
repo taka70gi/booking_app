@@ -1,15 +1,362 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+body {
+    background-color: #F6F8F9;
+    color: #333;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 180px;
+    box-sizing: border-box;
+}
+header{
+    background-color: black;
+    padding: 4px 30px;
+}
+footer{
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+    bottom: 0;
+    width: 100%;
+    height: 180px;
+    padding-top: 90px;
+    background-color: #111;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+}
+li{
+    list-style-type: none;
+    margin: 13px;
+}
+a{
+    text-decoration: none;
+}
+.btn{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    user-select: none;
+    padding: 9px 13px;
+    font-size: 15px;
+    line-height: 1.5;
+    border-radius: 5px;
+}
+.header_layout
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_list{
+    display: flex;
+    justify-content:space-between;
+}
+.header_right{
+    display: flex;
+}
+.header_search{
+    display: none;
+    margin-top: 20px;
+}
+@media (min-width: 992px){
+    .header_search{
+        display: flex;
+    }
+}
+.header_search_field{
+    margin-left: 10px;
+}
+.header_logo{
+    display: flex;
+}
+.header_search_field .field_size{
+    width: 150px;
+}
+.new_user .field_size{
+    width: 260px;
+}
+.me_icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+.header_name{
+    color: #F6F8F9;
+    font-size:20px ;
+    padding-top: 17px;
+    padding-right: 20px;
+}
+.blue_button{
+    color: #fff;
+    background-color: #4a90e2;
+    border: none;    
+}
+.white_button{
+    color: #4a90e2;
+    background-color: #fff;
+    border: 1px solid #6c757d;  
+}
+.black_button{
+    color: #fff;
+    background-color:slategray;
+    border: none;   
+}
+.field{
+    margin: 10px;
+}
+.field::before {
+    content: "必須";
+    color: #fff;
+    background-color: #ff0000a8;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 0 5px;
+}
+.edit_label::after {
+    content: "必須";
+    color: #fff;
+    background-color: #ff0000a8;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 0 5px;
+}
+.user_btn_size{
+    width: 320px;
+    line-height: 1;
+}
+.field_size{
+    width: 400px;
+    line-height: 2;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.string_layout{
+    color: #007bff;
+}
+.string_layout_black{
+    color: #000000;
+}
+.render_layout{
+    margin-top: 25px;
+}
+.setup_view{
+    width: 100%;
+    background-color: springgreen;
+}
+.user_view_box{
+    background-color: wheat;
+    max-width: 880px;
+    border: 1px solid #eaedef;
+    margin: 30px auto;
+}
+.user_view_content{
+    border-bottom: 1px solid #eaedef;
+    padding: 20px;
+    margin: 0 15px;
+    font-size: 16px;
+}
+.row{
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+.label{
+    position: relative;
+    width: 30%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.user_value{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;    
+}
+table {
+    border-collapse: collapse;
+    word-break: break-all;
+}
+table th {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eaedef;
+    line-height: 40px;
+    width:200px; 
+}
+
+table td {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eaedef;
+    line-height: 40px;  
+}
+.setup_btn_size{
+    width: 110px;
+    line-height: 22px;    
+}
+.device {
+    padding-top: 36px;
+    font-size: 16px;
+    margin-bottom:100px;
+}
+.device_frame {
+    max-width: 600px;
+    text-align: center;
+    padding: 55px 0px;
+    margin: 0px auto;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #6c757d;
+}
+.update_btn_size{
+    width: 290px;
+    line-height: 22px;     
+}
+.back_btn_size{
+    width: 290px;
+    line-height: 22px;       
+}
+.btn_layout{
+    width: 600px;
+    margin-top:20px;    
+}
+.device_frame div{
+    margin-top:20px;    
+}
+
+.form_layout {
+    margin: 9px 0;
+    height: 40px;
+    width: 100%;
+}
+
+.layout_back{
+    background-color:#F6F8F9;
+    width: 100%;
+}
+.layout_wide{
+    padding: 60px 30px;
+}
+.layout_position {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+}
+.layout_item_back{
+    padding: 20px;
+    border: 1px solid #eaedef;
+    background: #fff;
+}
+.index-image {
+    width: 240px;
+    height: 140px;
+    object-fit: cover;
+}
+.index_link{
+    color: #4a90e2;
+    text-decoration: underline;
+    font-size: 16px;
+}
+
+.user .row{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.col-lg-2, .col-md-10 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.user-nav {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 15px;
+}
+.user-nav-pc {
+    height: 750px;
+}
+.user-nav-mobile {
+    height: auto;
+}
+.d-none {
+    display: none;
+}
+@media (min-width: 992px){
+    .d-lg-block {
+        display: block;
+    }
+}
+@media (min-width: 992px){
+    .d-lg-none {
+        display: none;
+    }
+}
+@media (min-width: 992px){
+    .col-lg-2 {
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+}
+@media (min-width: 992px){
+    .col-md-10 {
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
+}
+.col-md-10 {
+    max-width: 100%;
+}
+.user-nav-mobile li {
+    float: left;
+}
+.user-nav li {
+    font-size: 18px;
+    padding: 10px;
+}
+.user-nav-pc .active {
+    border-right: 3px solid #4a90e2;
+}
+.user-nav-mobile .active {
+    border-bottom: 3px solid #4a90e2;
+}
+.header-nav-menu {
+    background-color: #fff;
+    border: 3px solid #F6F8F9;
+    position: absolute;
+    top: 83px;
+    right: 5px;
+    padding: 15px;
+    z-index: 1000;
+}
+.header-nav-menu{
+    display: none;
+}
+.notice {
+    height: 20px;
+    background-color: #ffebb5;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+}
+.alert {
+    height: 20px;
+    background-color: #ffacac;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+}
+ul.err_layout {
+    color: red;
+    text-align: center;
+}
+.field_with_errors {
+    display: contents;
+}

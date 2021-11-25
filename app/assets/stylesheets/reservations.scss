@@ -1,0 +1,40 @@
+// Place all the styles related to the reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.reservations-new-nav{
+    padding: 20px;
+    border: 1px solid #eaedef;
+}
+.reservations-new_text {
+    padding-bottom: 10px;
+}
+.reservation_table td{
+    font-size: 13px;
+}
+.reservation_table th{
+    font-size: 13px;
+    border-top: 1px solid #eaedef;
+}
+
+.reservation_index_img{
+    width: 290px;
+}
+.reservation_index_name{
+    width: 260px;
+}
+.reservation_index_introduction{
+    width: 260px;
+}
+.reservation_index_price{
+    width: 120px;
+}
+.reservation_index_start{
+    width: 160px;
+}
+.reservation_index_end{
+    width: 160px;
+}
+.reservation_index_date{
+    width: 160px;
+}
